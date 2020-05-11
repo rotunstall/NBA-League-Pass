@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <!-- Place favicon.ico in the root directory -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="To Be Determined" />
+  <meta name="keywords" content="To Be Determined" />
+  <meta name="author" content="Ryan O Tunstall" />
+  <link rel="canonical" href="https://WhatsTheSite.com/original" />
+  <link rel="stylesheet" href="css/bootstrap-social.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/5ab7773342.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>NBA League Pass</title>
+
+</head>
+
+<body id="body">
+  <div class="d-flex flex-column">
+    <header class="primary-header d-flex flex-column align-items-center py-4">
+      <h1 class="branding text-center">NBA Team/Franchise Profile</h1>
+      <button type="button" class="btn btn-warning my-4 px-3" id="team-btn" data-toggle="collapse"
+        data-target=".multi-collapse" aria-expanded="false"
+        aria-controls="westTeamsCollapse eastTeamsCollapse">TEAMS</button>
+      <!-- <div class="conf-link-wrapper">
+        <div class="conf-link-wrapper btn-group mb-4" role="group">
+          <button type="button" class="btn btn-primary" data-toggle="collapse"
+            data-target="#westTeamsCollapse" aria-expanded="false"
+            aria-controls="#westTeamsCollapse">WESTERN<br />CONFERENCE</button>
+          <button type="button" class="btn btn-warning" data-toggle="collapse"
+            data-target="#eastTeamsCollapse" aria-expanded="false"
+            aria-controls="#eastTeamsCollapse">EASTERN<br />CONFERENCE</button>
+        </div>
+      </div> -->
+
+      <nav class="primary-nav nav">
+        <ul class="primary-nav-wrapper container d-md-flex flex-md-column align-items-md-center">
+
+          <li class="conference-group west-teams-wrapper text-center mb-2 collapse multi-collapse"
+            id="westTeamsCollapse">
+            WESTERN
+            CONFERENCE
+            <ul class="west-teams container d-md-flex flex-md-row justify-content-md-center">
+              <li class="division-title text-left ml-4 mb-2">Northwest Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134885" class="team-name">Denver
+                      Nuggets</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134886" class="team-name">Minnesota
+                      Timberwolves</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134887" class="team-name">Oklahoma
+                      City
+                      Thunder</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134888" class="team-name">Portland
+                      Trail
+                      Blazers</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134889" class="team-name">Utah
+                      Jazz</a></li>
+                </ul>
+              </li>
+              <li class="division-title text-left ml-4 mb-2">Pacific Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134865" class="team-name">Golden
+                      State
+                      Warriors</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134866" class="team-name">Los
+                      Angeles
+                      Clippers</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134867" class="team-name">Los
+                      Angeles Lakers</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134868" class="team-name">Phoenix
+                      Suns</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134869" class="team-name">Sacramento
+                      Kings</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="division-title text-left ml-4">Southwest Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134875" class="team-name">Dallas
+                      Mavericks</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134876" class="team-name">Houston
+                      Rockets</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134877" class="team-name">Memphis
+                      Grizzlies</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134878" class="team-name">New
+                      Orleans
+                      Pelicans</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134879" class="team-name">San
+                      Antonio Spurs</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li
+            class="conference-group east-teams-wrapper text-center border-top border-secondary pt-3 collapse multi-collapse"
+            id="eastTeamsCollapse">
+            EASTERN CONFERENCE
+            <ul class="east-teams container d-md-flex flex-md-row justify-content-md-center">
+              <li class="division-title text-left ml-4 mb-2">Atlantic Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134860" class="team-name">Boston
+                      Celtics</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134861" class="team-name">Brooklyn
+                      Nets</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134862" class="team-name">New York
+                      Knicks</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134863"
+                      class="team-name">Philadelphia
+                      76ers</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134864" class="team-name">Toronto
+                      Raptors</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="division-title text-left ml-4 mb-2">Central Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134870" class="team-name">Chicago
+                      Bulls</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134871" class="team-name">Cleveland
+                      Cavaliers</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134872" class="team-name">Detroit
+                      Pistons</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134873" class="team-name">Indiana
+                      Pacers</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134874" class="team-name">Milwaukee
+                      Bucks</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="division-title text-left ml-4">Southeast Division
+                <ul class="division-group text-left">
+                  <li class="team-wrapper"><a href="#main-content" id="nba134880" class="team-name">Atlanta
+                      Hawks</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134881" class="team-name">Charlotte
+                      Hornets</a>
+                  </li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134882" class="team-name">Miami
+                      Heat</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134883" class="team-name">Orlando
+                      Magic</a></li>
+                  <li class="team-wrapper"><a href="#main-content" id="nba134884" class="team-name">Washington
+                      Wizards</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-wrapper py-4  px-md-5" id="main-content">
+      <section class="team-info-wrapper container" id="team-info">
+      </section>
+
+      <section class="league-info container">
+        <h2 class="league-info-header text-center text-uppercase">
+          National Basketball Association (NBA)
+        </h2>
+        <h3 class="league-info-subheader text-center">
+          An Early History -- <small>1946 to 1957</small>
+        </h3>
+        <img src="img/NBA-MultiTeam-USA.jpg" alt="stadium image" width=100% />
+        <p class="league-info-text">
+          The National Basketball Association (NBA) is the pre-eminent men's
+          professional basketball league in North America, and is widely
+          considered to be the premier men's professional basketball league in
+          the world. It has 30 franchised member clubs (29 in the United
+          States and 1 in Canada), and is an active member of USA Basketball
+          (USAB), which is recognized by FIBA (also known as the International
+          Basketball Federation) as the national governing body for basketball
+          in the United States. The NBA is one of the four major North
+          American professional sports leagues. NBA players are the world's
+          best paid sportsmen, by average annual salary per player. The league
+          was founded in New York City on June 6, 1946, as the Basketball
+          Association of America (BAA). The league adopted the name National
+          Basketball Association on August 3, 1949, after merging with its
+          rival National Basketball League (NBL).
+        </p>
+        <p>
+          The league's several international as well as individual team
+          offices are directed out of its head offices located in the Olympic
+          Tower at 645 Fifth Avenue in New York City. NBA Entertainment and
+          NBA TV studios are directed out of offices located in Secaucus, New
+          Jersey. The Basketball Association of America was founded in 1946 by
+          owners of the major ice hockey arenas in the Northeastern and
+          Midwestern United States and Canada. On November 1, 1946, in
+          Toronto, Ontario, Canada, the Toronto Huskies hosted the New York
+          Knickerbockers at Maple Leaf Gardens, in a game the NBA now regards
+          as the first played in its history. The first basket was made by
+          Ossie Schectman of the Knickerbockers. Although there had been
+          earlier attempts at professional basketball leagues, including the
+          American Basketball League and the NBL, the BAA was the first league
+          to attempt to play primarily in large arenas in major cities.
+        </p>
+        <p>
+          During its early years, the quality of play in the BAA was not
+          significantly better than in competing leagues or among leading
+          independent clubs such as the Harlem Globetrotters. For instance,
+          the 1948 ABL finalist Baltimore Bullets moved to the BAA and won
+          that league's 1948 title, and the 1948 NBL champion Minneapolis
+          Lakers won the 1949 BAA title. Prior to the 1948-49 season, however,
+          NBL teams from Fort Wayne, Indianapolis, Minneapolis, and Rochester
+          jumped to the BAA, which established the BAA as the league of choice
+          for collegians looking to turn professional. The headquarters of the
+          National Basketball Association in the Olympic Tower at 645 Fifth
+          Avenue, Midtown Manhattan, New York City, USA. Following the 1948-49
+          season, the BAA took in the remainder of the NBL: Syracuse,
+          Anderson, Tri-Cities, Sheboygan, Denver, and Waterloo. In deference
+          to the merger and to avoid possible legal complications, the league
+          name was changed from the BAA to the National Basketball Association
+          in spite of having the same BAA governing body including Podoloff.
+        </p>
+        <p>
+          The new league had seventeen franchises located in a mix of large
+          and small cities, as well as large arenas and smaller gymnasiums and
+          armories. In 1950, the NBA consolidated to eleven franchises, a
+          process that continued until 1953–54, when the league reached its
+          smallest size of eight franchises, all of which are still in the
+          league (the New York Knicks, Boston Celtics, Golden State Warriors,
+          Los Angeles Lakers, Royals/Kings, Detroit Pistons, Atlanta Hawks,
+          and Nationals/76ers). The process of contraction saw the league's
+          smaller-city franchises move to larger cities. The Hawks shifted
+          from 'Tri-Cities' (the area now known as the Quad Cities) to
+          Milwaukee (in 1951) and then to St. Louis, Missouri (in 1955); the
+          Royals from Rochester, New York to Cincinnati (in 1957); and the
+          Pistons from Fort Wayne, Indiana to Detroit (in 1957).
+        </p>
+        <p>
+          Japanese-American Wataru Misaka broke the NBA color barrier in the
+          1947–48 season when he played for the New York Knicks. He remained
+          the only non-white player in league history prior to the first
+          African-American, Harold Hunter, signing with the Washington
+          Capitols in 1950. Hunter was cut from the team during training camp,
+          but several African-American players did play in the league later
+          that year, including Chuck Cooper with the Celtics, Nathaniel
+          'Sweetwater' Clifton with the Knicks, and Earl Lloyd with the
+          Washington Capitols. During this period, the Minneapolis Lakers, led
+          by center George Mikan, won five NBA Championships and established
+          themselves as the league's first dynasty. To encourage shooting and
+          discourage stalling, the league introduced the 24-second shot clock
+          in 1954. If a team does not attempt to score a field goal (or the
+          ball fails to make contact with the rim) within 24 seconds of
+          obtaining the ball, play is stopped and the ball given to its
+          opponent.
+        </p>
+      </section>
+      <div class="to-top-wrapper text-right mr-md-5 mr-sm-3 mb-md-5 mb-sm-3 fixed-bottom d-none">
+        <a href="#body" id="top-link" class="to-top-link"><i class="fas fa-arrow-alt-circle-up "></i></a>
+      </div>
+    </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
