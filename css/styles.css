@@ -7,6 +7,10 @@ html {
 	scroll-behavior: smooth;
 }
 
+#body {
+	background: #d3d4df;
+}
+
 ul.primary-nav-wrapper,
 ul.east-teams,
 ul.west-teams,
@@ -15,7 +19,7 @@ ul.division-group {
 }
 
 .main-wrapper {
-	background-color: rgb(12, 12, 12);
+	background-color: #070707;
 	color: cornsilk;
 	width: 100vw;
 }
