@@ -1,0 +1,55 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+ul.primary-nav-wrapper,
+ul.east-teams,
+ul.west-teams,
+ul.division-group {
+	list-style: none;
+}
+
+.main-wrapper {
+	background-color: rgb(12, 12, 12);
+	color: cornsilk;
+	width: 100vw;
+}
+
+/* .team-info-wrapper {
+	background-color: rgba(255, 255, 255, 0.502);
+	color: rgb(60, 60, 60);
+	width: 80vw;
+	border-radius: 7px;
+} */
+
+.fa-youtube {
+	color: #fa0000;
+	background: white;
+}
+
+.btn-instagram {
+	background: #d10059;
+}
+
+.team-website {
+	font-size: 18px;
+}
+
+#top-link {
+	font-size: 2em;
+	color: rgba(33, 136, 55, 0.65);
+}
+
+#team-btn {
+	font-size: 1.75em;
+}
+
+.team-info-text {
+	font-size: 1.25em;
+	line-height: 1.8;
+}
