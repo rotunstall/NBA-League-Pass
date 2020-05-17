@@ -7,19 +7,94 @@ let bodyElement = document.querySelector("#body");
 
 let teamsData = [];
 
-window.onload = function getTeamsData() {
+document.addEventListener("DOMContentLoaded", function getTeamsData() {
 	axios({
 		method: "get",
 		url:
 			"https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387"
 	})
 		.then((res) => {
-			res.data.teams.forEach((element) => {
-				teamsData.push(element);
+			teamsData = [...res.data.teams].map((item) => {
+				buildConferences(item);
+				buildDivisions(item);
+				teamsData.push(item);
 			});
+			console.log(teamsData);
 		})
 		.catch((err) => console.error(err));
-};
+});
+
+function buildConferences(item) {
+	if (
+		item.strTeamShort == "DEN" ||
+		item.strTeamShort == "MIN" ||
+		item.strTeamShort == "OKC" ||
+		item.strTeamShort == "POR" ||
+		item.strTeamShort == "UTA" ||
+		item.strTeamShort == "GSW" ||
+		item.strTeamShort == "LAC" ||
+		item.strTeamShort == "LAL" ||
+		item.strTeamShort == "PHX" ||
+		item.strTeamShort == "SAC" ||
+		item.strTeamShort == "DAL" ||
+		item.strTeamShort == "HOU" ||
+		item.strTeamShort == "MEM" ||
+		item.strTeamShort == "NOP" ||
+		item.strTeamShort == "SAS"
+	) {
+		item.strConference = "Western";
+	} else {
+		item.strConference = "Eastern";
+	}
+}
+
+function buildDivisions(item) {
+	if (
+		item.strTeamShort == "DEN" ||
+		item.strTeamShort == "MIN" ||
+		item.strTeamShort == "OKC" ||
+		item.strTeamShort == "POR" ||
+		item.strTeamShort == "UTA"
+	) {
+		item.strDivision = "Northwest";
+	} else if (
+		item.strTeamShort == "GSW" ||
+		item.strTeamShort == "LAC" ||
+		item.strTeamShort == "LAL" ||
+		item.strTeamShort == "PHX" ||
+		item.strTeamShort == "SAC"
+	) {
+		item.strDivision = "Pacific";
+	} else if (
+		item.strTeamShort == "DAL" ||
+		item.strTeamShort == "HOU" ||
+		item.strTeamShort == "MEM" ||
+		item.strTeamShort == "NOP" ||
+		item.strTeamShort == "SAS"
+	) {
+		item.strDivision = "Southwest";
+	} else if (
+		item.strTeamShort == "BOS" ||
+		item.strTeamShort == "BKN" ||
+		item.strTeamShort == "NYK" ||
+		item.strTeamShort == "PHI" ||
+		item.strTeamShort == "TOR"
+	) {
+		item.strDivision = "Atlantic";
+	} else if (
+		item.strTeamShort == "CHI" ||
+		item.strTeamShort == "CLE" ||
+		item.strTeamShort == "DET" ||
+		item.strTeamShort == "IND" ||
+		item.strTeamShort == "MIL"
+	) {
+		item.strDivision = "Central";
+	} else {
+		item.strDivision = "Southeast";
+	}
+}
+
+console.log(teamsData);
 
 teamButton.addEventListener("click", teamButtonAction);
 
@@ -133,11 +208,11 @@ function displayTeamData(selectedTeam) {
     <h2 class="team-info-header text-center text-uppercase">
   ${selectedTeam.strTeam} <small>(${selectedTeam.strTeamShort})</small></h2>
     <h4 class="team-info-subheader text-center">
-	  Year Established:<br /> <span class="year-established">${selectedTeam.intFormedYear}</span>
+	Year Established:<br /> <span class="year-established">${selectedTeam.intFormedYear}</span>
 	</h4>
 	<div class="stadium-info text-center mb-5">
-	  <p class="stadium-name">Stadium Name:<br /> <strong>${selectedTeam.strStadium}</strong></p>
-	  <p class="stadium-location">Location:<br /> <strong>${selectedTeam.strStadiumLocation}</strong></p>
+	<p class="stadium-name">Stadium Name:<br /> <strong>${selectedTeam.strStadium}</strong></p>
+	<p class="stadium-location">Location:<br /> <strong>${selectedTeam.strStadiumLocation}</strong></p>
     <p class="stadium-capacity">Capacity:<br /> <strong>${selectedTeam.intStadiumCapacity}</strong></p>
     <img src="${selectedTeam.strStadiumThumb}" alt="stadium image" width=100%/>
 	</div>
@@ -170,9 +245,6 @@ function displayTeamData(selectedTeam) {
 	teamInfoSection.classList.add("my-3,mx-3");
 	teamInfoSection.classList.remove("d-none");
 	teamInfoSection.innerHTML = newHtml;
-	// let teamInfoDiv = document.querySelector(".team-info");
-
-	// teamInfoSection.style.background = "url(" + imageUrl + ")";
 }
 
 // Scroll to the top functionality
@@ -185,8 +257,3 @@ window.addEventListener("scroll", function () {
 		toTopButton.classList.add("d-none");
 	}
 });
-
-/*
-stadium background image    ${strStadiumThumb}
-
-  */
