@@ -15,15 +15,16 @@ document.addEventListener("DOMContentLoaded", function getTeamsData() {
 	})
 		.then((res) => {
 			teamsData = [...res.data.teams].map((item) => {
-				buildConferences(item);
-				buildDivisions(item);
+				addTeamConferences(item);
+				addTeamDivisions(item);
+				addTeamLinksToUi(item, buildTeamLinks(item));
 				return item;
 			});
 		})
 		.catch((err) => console.error(err));
 });
 
-function buildConferences(item) {
+function addTeamConferences(item) {
 	if (
 		item.strTeamShort == "DEN" ||
 		item.strTeamShort == "MIN" ||
@@ -47,7 +48,7 @@ function buildConferences(item) {
 	}
 }
 
-function buildDivisions(item) {
+function addTeamDivisions(item) {
 	if (
 		item.strTeamShort == "DEN" ||
 		item.strTeamShort == "MIN" ||
@@ -96,58 +97,54 @@ console.log(teamsData);
 teamButton.addEventListener("click", teamButtonAction);
 
 function teamButtonAction() {
-	addTeamLinksToUi();
 	leagueInfoSection.classList.remove("d-none");
 	teamInfoSection.classList.add("d-none");
 }
 
-function buildTeamLinks() {
+function buildTeamLinks(item) {
 	const teamLink = document.createElement("a");
+	teamLink.setAttribute("href", "#main-content");
+	teamLink.id = `nba${item.idTeam}`;
 	teamLink.className = "team-name";
 	teamLink.innerHTML = `${item.strTeam}`;
 	teamLink.onclick = locateTeamData;
 
 	const newLi = document.createElement("li");
-	newLi.id = `nba${item.idTeam}`;
 	newLi.className = "team-wrapper";
 	newLi.appendChild(teamLink);
+
+	return newLi;
 }
 
-function addTeamLinksToUi() {
-	teamsData.forEach((elem) => {
-		if (elem.strDivision == "Northwest") {
-			buildDivisions();
-			let ul = document.querySelector(".division-northwest");
-			ul.appendChild(newLi);
-		} else if (elem.strDivision == "Pacific") {
-			buildDivisions();
-			let ul = document.querySelector(".division-pacific");
-			ul.appendChild(newLi);
-		} else if (elem.strDivision == "Southwest") {
-			buildDivisions();
-			let ul = document.querySelector(".division-southwest");
-			ul.appendChild(newLi);
-		} else if (elem.strDivision == "Atlantic") {
-			buildDivisions();
-			let ul = document.querySelector(".division-atlantic");
-			ul.appendChild(newLi);
-		} else if (elem.strDivision == "Central") {
-			buildDivisions();
-			let ul = document.querySelector(".division-central");
-			ul.appendChild(newLi);
-		} else {
-			buildDivisions();
-			let ul = document.querySelector(".division-southeast");
-			ul.appendChild(newLi);
-		}
-	});
+function addTeamLinksToUi(item, newLi) {
+	console.log(item);
+
+	if (item.strDivision == "Northwest") {
+		let ul = document.querySelector(".division-northwest");
+		ul.appendChild(newLi);
+	} else if (item.strDivision == "Pacific") {
+		let ul = document.querySelector(".division-pacific");
+		ul.appendChild(newLi);
+	} else if (item.strDivision == "Southwest") {
+		let ul = document.querySelector(".division-southwest");
+		ul.appendChild(newLi);
+	} else if (item.strDivision == "Atlantic") {
+		let ul = document.querySelector(".division-atlantic");
+		ul.appendChild(newLi);
+	} else if (item.strDivision == "Central") {
+		let ul = document.querySelector(".division-central");
+		ul.appendChild(newLi);
+	} else {
+		let ul = document.querySelector(".division-southeast");
+		ul.appendChild(newLi);
+	}
 }
 
 function locateTeamData(e) {
 	let teamIdUi = e.target.id;
 	teamIdUi = teamIdUi.substring(3);
-	console.log(teamIdUi);
 	let selectedTeam = teamsData.find((item) => item.idTeam == teamIdUi);
+	console.log(teamsData);
 	displayTeamData(selectedTeam);
 }
 
@@ -208,3 +205,5 @@ window.addEventListener("scroll", function () {
 		toTopButton.classList.add("d-none");
 	}
 });
+
+console.log(teamsData);
