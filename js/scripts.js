@@ -16,84 +16,92 @@ document.addEventListener("DOMContentLoaded", function getTeamsData() {
 		.then((res) => {
 			teamsData = [...res.data.teams].map((item) => {
 				addTeamConferences(item);
-				addTeamDivisions(item);
+				addToNorthwestDivision(item);
+				addToPacificDivision(item);
+				addToSouthwestDivision(item);
+				addToAtlanticDivision(item);
+				addToCentralDivision(item);
+				addToSoutheastDivision(item);
 				addTeamLinksToUi(item, buildTeamLinks(item));
 				return item;
 			});
 		})
 		.catch((err) => console.error(err));
 });
+const westernTeams = [
+	"DEN",
+	"MIN",
+	"OKC",
+	"POR",
+	"UTA",
+	"GSW",
+	"LAC",
+	"LAL",
+	"PHX",
+	"SAC",
+	"DAL",
+	"HOU",
+	"MEM",
+	"NOP",
+	"SAS"
+];
 
 function addTeamConferences(item) {
-	if (
-		item.strTeamShort == "DEN" ||
-		item.strTeamShort == "MIN" ||
-		item.strTeamShort == "OKC" ||
-		item.strTeamShort == "POR" ||
-		item.strTeamShort == "UTA" ||
-		item.strTeamShort == "GSW" ||
-		item.strTeamShort == "LAC" ||
-		item.strTeamShort == "LAL" ||
-		item.strTeamShort == "PHX" ||
-		item.strTeamShort == "SAC" ||
-		item.strTeamShort == "DAL" ||
-		item.strTeamShort == "HOU" ||
-		item.strTeamShort == "MEM" ||
-		item.strTeamShort == "NOP" ||
-		item.strTeamShort == "SAS"
-	) {
+	if (westernTeams.includes(item.strTeamShort)) {
 		item.strConference = "Western";
 	} else {
 		item.strConference = "Eastern";
 	}
 }
 
-function addTeamDivisions(item) {
-	if (
-		item.strTeamShort == "DEN" ||
-		item.strTeamShort == "MIN" ||
-		item.strTeamShort == "OKC" ||
-		item.strTeamShort == "POR" ||
-		item.strTeamShort == "UTA"
-	) {
+const northwestTeams = ["DEN", "MIN", "OKC", "POR", "UTA"];
+
+const pacificTeams = ["GSW", "LAC", "LAL", "PHX", "SAC"];
+
+const southwestTeams = ["DAL", "HOU", "MEM", "NOP", "SAS"];
+
+const atlanticTeams = ["BOS", "BKN", "NYK", "PHI", "TOR"];
+
+const centralTeams = ["CHI", "CLE", "DET", "IND", "MIL"];
+
+const southeastTeams = ["ATL", "CHA", "MIA", "ORL", "WAS"];
+
+function addToNorthwestDivision(item) {
+	if (northwestTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Northwest";
-	} else if (
-		item.strTeamShort == "GSW" ||
-		item.strTeamShort == "LAC" ||
-		item.strTeamShort == "LAL" ||
-		item.strTeamShort == "PHX" ||
-		item.strTeamShort == "SAC"
-	) {
+	}
+}
+
+function addToPacificDivision(item) {
+	if (pacificTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Pacific";
-	} else if (
-		item.strTeamShort == "DAL" ||
-		item.strTeamShort == "HOU" ||
-		item.strTeamShort == "MEM" ||
-		item.strTeamShort == "NOP" ||
-		item.strTeamShort == "SAS"
-	) {
+	}
+}
+
+function addToSouthwestDivision(item) {
+	if (southwestTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Southwest";
-	} else if (
-		item.strTeamShort == "BOS" ||
-		item.strTeamShort == "BKN" ||
-		item.strTeamShort == "NYK" ||
-		item.strTeamShort == "PHI" ||
-		item.strTeamShort == "TOR"
-	) {
+	}
+}
+
+function addToAtlanticDivision(item) {
+	if (atlanticTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Atlantic";
-	} else if (
-		item.strTeamShort == "CHI" ||
-		item.strTeamShort == "CLE" ||
-		item.strTeamShort == "DET" ||
-		item.strTeamShort == "IND" ||
-		item.strTeamShort == "MIL"
-	) {
+	}
+}
+
+function addToCentralDivision(item) {
+	if (centralTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Central";
-	} else {
+	}
+}
+
+function addToSoutheastDivision(item) {
+	if (southeastTeams.includes(item.strTeamShort)) {
 		item.strDivision = "Southeast";
 	}
 }
-console.log(teamsData);
+
 teamButton.addEventListener("click", teamButtonAction);
 
 function teamButtonAction() {
@@ -117,8 +125,6 @@ function buildTeamLinks(item) {
 }
 
 function addTeamLinksToUi(item, newLi) {
-	console.log(item);
-
 	if (item.strDivision == "Northwest") {
 		let ul = document.querySelector(".division-northwest");
 		ul.appendChild(newLi);
@@ -205,5 +211,3 @@ window.addEventListener("scroll", function () {
 		toTopButton.classList.add("d-none");
 	}
 });
-
-console.log(teamsData);
