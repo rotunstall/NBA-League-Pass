@@ -105,6 +105,11 @@ function addToSoutheastDivision(item) {
 teamButton.addEventListener("click", teamButtonAction);
 
 function teamButtonAction() {
+	if (teamButton.innerHTML === "TEAMS") {
+		teamButton.innerHTML = "HOME";
+	} else {
+		teamButton.innerHTML = "TEAMS";
+	}
 	leagueInfoSection.classList.remove("d-none");
 	teamInfoSection.classList.add("d-none");
 }
